@@ -11,5 +11,7 @@ output "deployment_token" {
 
 output "apex_txt_token" {
   description = "Add as a TXT record for host @ at Namecheap."
+  sensitive   = true
   value       = var.enable_apex_domain ? azurerm_static_web_app_custom_domain.apex[0].validation_token : null
 }
+
