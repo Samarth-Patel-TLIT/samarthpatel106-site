@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Samarth Patel</title>
+<meta name="description" content="Samarth Patel, systems and infrastructure engineer in Chicago: 8 years with Windows, Linux, VMware and Azure in audited environments.">
+<meta property="og:title" content="Samarth Patel · Systems &amp; Infrastructure Engineer">
+<meta property="og:description" content="8 years running and modernizing Windows, Linux, VMware and Azure infrastructure in HITRUST and SOC audited environments. Chicago, IL.">
+<meta property="og:type" content="profile">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Samarth Patel","jobTitle":"Systems Engineer","address":{"@type":"PostalAddress","addressLocality":"Chicago","addressRegion":"IL"},"alumniOf":"Illinois State University","sameAs":["https://www.linkedin.com/in/samarth-patel106"],"knowsAbout":["Windows Server","Active Directory","Microsoft Entra ID","Microsoft Intune","VMware vSphere","Red Hat Enterprise Linux","Microsoft Azure","Ansible","PowerShell"]}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a dark "server room" band (nav + hero) with the rack lit in blue, then a clean spec-sheet body
+   on a cool neutral: wide display type, mono labels, hairline rules. The contact band returns to the dark room. */
+:root{
+  --bg:#f5f6f9; --surface:#ffffff; --ink:#0a0f1a; --muted:#515a6b; --line:#dde2ea; --line-strong:#a7b0c0;
+  --accent:#0b57d0; --accent-fill:#1a6bff; --on-accent:#ffffff; --ok:#0b7a43; --ok-fill:#0f8a4b;
+  --room:#060a13;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0a0e17; --surface:#121a2a; --ink:#eef2f9; --muted:#9aa5b8; --line:#1f2a3d; --line-strong:#42506c;
+    --accent:#8ab6ff; --accent-fill:#2f7bff; --on-accent:#ffffff; --ok:#4ade80; --ok-fill:#147a46;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0a0e17; --surface:#121a2a; --ink:#eef2f9; --muted:#9aa5b8; --line:#1f2a3d; --line-strong:#42506c;
+  --accent:#8ab6ff; --accent-fill:#2f7bff; --on-accent:#ffffff; --ok:#4ade80; --ok-fill:#147a46;
+}
+/* The dark room: these bands look the same in both themes, so they re-point the shared tokens. */
+.nav,.hero,#contact,footer{
+  color-scheme:dark;
+  --bg:var(--room); --surface:#0f1829; --ink:#f1f5fc; --muted:#a3b1c9; --line:#1c2740; --line-strong:#3c4c6e;
+  --accent:#8ab6ff; --ok:#4ade80;
+  color:var(--ink);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--room)}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.04;letter-spacing:-.02em;overflow-wrap:anywhere}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--room) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 12px var(--ok)}
+.nav nav{display:flex;gap:24px;align-items:center;font-size:15px}
+.nav nav a{text-decoration:none;color:var(--muted)}
+.nav nav a:hover{color:var(--ink)}
+.nav nav a.cta{color:var(--on-accent)}
+@media (max-width:820px){.nav nav a:not(.cta){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);padding:12px 20px;border-radius:10px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;transition:border-color .15s,transform .15s}
+.btn:hover{border-color:var(--ink)}
+.btn.cta{background:var(--accent-fill);border-color:var(--accent-fill);color:var(--on-accent);box-shadow:0 6px 24px -8px var(--accent-fill)}
+.btn.cta:hover{transform:translateY(-1px);border-color:var(--accent-fill)}
+.btn.sm{padding:7px 13px;font-size:13.5px;border-radius:8px;box-shadow:none}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(55% 75% at 80% 48%,rgba(47,123,255,.26),transparent 70%),radial-gradient(40% 50% at 8% 0%,rgba(47,123,255,.12),transparent 70%),linear-gradient(180deg,#060a13,#0a1222)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(138,182,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(138,182,255,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(70% 80% at 70% 50%,#000,transparent);mask-image:radial-gradient(70% 80% at 70% 50%,#000,transparent);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(32px,5.1vw,66px);font-weight:800;font-stretch:112%}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#8ab6ff,#4ade80);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{font-size:18.5px;color:var(--muted);max-width:56ch;margin-top:22px}
+.hero .lede b{color:var(--ink);font-weight:600}
+.status{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;padding:6px 13px;border:1px solid var(--line-strong);border-radius:999px;background:rgba(15,24,41,.7);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:36px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stats div{padding:16px 18px;background:rgba(8,13,24,.92)}
+.stats b{display:block;font-family:var(--display);font-stretch:108%;font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stats span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:var(--muted)}
+
+.rackcol{display:flex;flex-direction:column;gap:14px;min-width:0}
+.stage{position:relative;aspect-ratio:5/6;max-height:580px;width:100%;max-width:100%}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.stage canvas.drag{cursor:grabbing}
+.stage canvas.hot{cursor:pointer}
+.hint{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:12px;color:var(--muted);pointer-events:none}
+.units{display:flex;flex-wrap:wrap;gap:6px}
+.units button{font:500 11.5px var(--mono);letter-spacing:.05em;padding:6px 9px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.units button:hover{color:var(--ink);border-color:var(--line-strong)}
+.units button[aria-pressed="true"]{background:var(--accent-fill);color:var(--on-accent);border-color:var(--accent-fill)}
+.detail{border:1px solid var(--line);border-left:3px solid var(--accent-fill);border-radius:0 12px 12px 0;background:rgba(15,24,41,.72);padding:14px 16px;min-height:128px}
+.detail h3{font-size:21px;font-weight:700;font-stretch:105%;margin:6px 0 6px}
+.detail p{font-size:15.5px;color:var(--muted);max-width:54ch}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:44px}
+  .stage{aspect-ratio:1/1;max-height:440px}
+}
+
+/* sections */
+section{padding-block:80px}
+section + section{border-top:1px solid var(--line)}
+.head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+.head h2{font-size:clamp(28px,3.7vw,46px);font-weight:800;font-stretch:110%}
+.head p{color:var(--muted)}
+
+/* work */
+/* case studies as ruled rows: diagram left, scope / method / outcome right */
+.work{display:grid;border-top:1px solid var(--line-strong)}
+.work article{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:44px;align-items:start;min-width:0;padding-block:34px;border-bottom:1px solid var(--line)}
+.work figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.work svg{display:block;width:100%;height:auto}
+.work .body{display:grid;gap:16px;min-width:0}
+.work .meta{font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.work h3{font-size:clamp(22px,2.4vw,28px);font-weight:700;font-stretch:105%;text-wrap:balance}
+.work dl{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px 24px;margin:0}
+.work dt{font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.work dd{margin:0;font-size:16px;max-width:62ch}
+.work dd.result{color:var(--ok);font-weight:600}
+@media (max-width:900px){.work article{grid-template-columns:minmax(0,1fr);gap:22px}.work figure{max-width:440px}}
+@media (max-width:520px){.work dl{grid-template-columns:minmax(0,1fr);gap:2px}.work dt{margin-top:10px}}
+.s-line{stroke:var(--line-strong);fill:none;stroke-width:1.5}
+.s-box{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.5}
+.s-ok{fill:var(--ok-fill)} .s-acc{fill:var(--accent-fill)} .s-ink{fill:var(--ink)} .s-mut{fill:var(--muted)}
+.s-okline{stroke:var(--ok);fill:none;stroke-width:2}
+.s-t{font:500 10px var(--mono);fill:var(--muted)} .s-tb{font:600 10px var(--mono);fill:var(--ink)}
+.s-ton{font:600 10px var(--mono);fill:var(--on-accent)}
+
+/* selected work v2: blueprint-panel figures, an index ledger, and a status pill per project */
+.work article{scroll-margin-top:80px}
+@media (min-width:901px){.work article{grid-template-columns:minmax(0,470px) minmax(0,1fr)}}
+.work figure.fig{padding:0;border-radius:10px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 18px 40px -28px color-mix(in srgb,var(--ink) 40%,transparent)}
+.fig-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fig-c{padding:14px;background-color:var(--surface);background-image:radial-gradient(color-mix(in srgb,var(--line-strong) 55%,transparent) 1px,transparent 1.2px);background-size:16px 16px}
+.pill{display:inline-flex;align-items:center;gap:6px;flex:none;padding:3px 9px;border-radius:999px;font:600 11px var(--mono);letter-spacing:.04em;text-transform:none;border:1px solid currentColor}
+.pill i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{color:var(--ok)} .pill.run{color:var(--accent)} .pill.run i{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.rail{list-style:none;margin:0;padding:12px 14px 14px;display:flex;border-top:1px solid var(--line);font:500 10.5px/1.3 var(--mono);color:var(--muted);counter-reset:r}
+.rail li{flex:1;position:relative;padding-top:16px;min-width:0;padding-right:6px}
+.rail li::before{content:"";position:absolute;top:3px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ok-fill);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok-fill) 22%,transparent)}
+.rail li::after{content:"";position:absolute;top:7px;left:14px;right:4px;height:1.5px;background:color-mix(in srgb,var(--ok-fill) 55%,var(--line))}
+.rail li:last-child::after{display:none}
+.fig-note{display:flex;align-items:center;gap:8px;margin:0;padding:12px 14px;border-top:1px solid var(--line);font:500 11.5px var(--mono);color:var(--muted)}
+.fig-note i{width:8px;height:8px;border-radius:50%;background:var(--accent-fill);animation:blink 1.6s ease-in-out infinite}
+.grp{margin:48px 0 0;padding-bottom:12px}
+.grp:first-of-type{margin-top:40px}
+.wstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.wstats div{background:var(--surface);padding:16px 18px}
+.wstats b{display:block;font-family:var(--display);font-stretch:108%;font-weight:800;font-size:clamp(24px,2.6vw,32px);line-height:1;font-variant-numeric:tabular-nums}
+.wstats span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:var(--muted)}
+@media (max-width:760px){.wstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ledger{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.ledger a{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr) minmax(0,.9fr) 112px;gap:16px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .15s}
+.ledger a:hover{background:color-mix(in srgb,var(--accent-fill) 6%,transparent)}
+.ledger .pill{justify-self:end}
+.lg-n{font-weight:600;font-size:15.5px}
+.lg-a,.lg-w{font:500 12px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:640px){.ledger a{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}.lg-w{display:none}.lg-a{grid-row:2}}
+@media (max-width:900px){.work figure.fig{max-width:520px}}
+@media (max-width:420px){.rail{font-size:9.5px}}
+/* figure marks */
+.fig svg{display:block;width:100%;height:auto;overflow:visible}
+.f-t{font:500 11px var(--mono);fill:var(--muted)} .f-tb{font:600 11px var(--mono);fill:var(--ink)}
+.f-ts{font:500 9.5px var(--mono);fill:var(--accent)} .f-ton{font:600 11px var(--mono);fill:var(--on-accent)}
+.f-tinv{font:600 11px var(--mono);fill:var(--surface)} .f-okt{font:600 11px var(--mono);fill:var(--ok)}
+.f-box{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.25}
+.f-hot{stroke:var(--accent-fill);stroke-width:1.5;stroke-dasharray:5 4}
+.f-ghost{fill:color-mix(in srgb,var(--bg) 70%,transparent);stroke:var(--line-strong);stroke-width:1.25;stroke-dasharray:4 3}
+.f-line{fill:none;stroke:var(--line-strong);stroke-width:1.25} .f-dash{stroke-dasharray:3 4}
+.f-ok{fill:var(--ok-fill)} .f-acc{fill:var(--accent-fill)} .f-ink{fill:var(--ink)}
+.f-tint{fill:color-mix(in srgb,var(--accent-fill) 13%,var(--surface));stroke:color-mix(in srgb,var(--accent-fill) 50%,var(--surface));stroke-width:1}
+.f-oktint{fill:color-mix(in srgb,var(--ok-fill) 16%,var(--surface));stroke:color-mix(in srgb,var(--ok-fill) 55%,var(--surface));stroke-width:1}
+.f-chip{fill:var(--surface);stroke:var(--accent-fill);stroke-width:1.25}
+.f-ring{fill:none;stroke:var(--accent-fill);stroke-opacity:.45;stroke-width:1.25;stroke-dasharray:3 5;animation:flow 2.4s linear infinite}
+.f-flow{fill:none;stroke:var(--accent-fill);stroke-width:1.75;stroke-dasharray:5 5;animation:flow 1.1s linear infinite}
+.f-flow.ok{stroke:var(--ok)}
+.f-arrow{fill:none;stroke:var(--accent-fill);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round} .f-arrow.ok{stroke:var(--ok)}
+.f-okline2{fill:none;stroke:var(--ok);stroke-width:1.5}
+.f-uptime{fill:none;stroke:var(--ok-fill);stroke-width:4;stroke-linecap:round}
+.f-tick{stroke:var(--surface);stroke-width:2}
+.f-dot{fill:var(--ok-fill);opacity:.4;animation:patch 3.6s ease-in-out infinite}
+.f-led{animation:led 2.2s ease-in-out infinite}
+.f-layer{animation:layer 4s ease-in-out infinite}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@keyframes patch{0%,100%{opacity:.4}12%,22%{opacity:1}}
+@keyframes led{50%{opacity:.45}}
+@keyframes layer{0%,100%{stroke-width:1}10%{stroke-width:2.25}}
+@media (prefers-reduced-motion:reduce){.f-flow,.f-ring,.f-dot,.f-led,.f-layer,.pill i,.fig-note i{animation:none}.f-dot{opacity:.75}}
+@media print{.ledger,.wstats{display:none}}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.projects article{display:flex;flex-direction:column;gap:10px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.projects h3{font-size:22px;font-weight:700;font-stretch:105%}
+.projects p{font-size:16px;color:var(--muted);max-width:56ch}
+.chips{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font:500 12px var(--mono);padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+@media (max-width:760px){.projects{grid-template-columns:minmax(0,1fr)}}
+
+/* timeline */
+.job{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;padding-block:30px;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:2px solid var(--ink)}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.7}
+.job .when b{display:block;color:var(--ink);font-weight:600}
+.job h3{font-size:24px;font-weight:700;font-stretch:105%}
+.job h3 span{color:var(--accent)}
+.job ul{margin:14px 0 0;padding-left:18px;display:grid;gap:8px;max-width:70ch}
+.job li{font-size:16px}
+.job li::marker{color:var(--accent-fill)}
+@media (max-width:760px){.job{grid-template-columns:minmax(0,1fr);gap:10px}}
+
+/* how I work / how this site runs */
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ways > div{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0}
+.ways p{margin-top:10px;font-size:16px;color:var(--muted)}
+.cmd{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line);font:13px var(--mono);overflow-x:auto}
+@media (max-width:900px){.ways{grid-template-columns:minmax(0,1fr)}}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px}
+.kit dl{margin:0;border-top:2px solid var(--ink)}
+.kit dl div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;padding-block:13px;border-bottom:1px solid var(--line)}
+.kit dt{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.kit dd{margin:0;font-size:16px}
+.creds{display:grid;gap:26px;align-content:start}
+.creds ul{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.creds li{display:flex;justify-content:space-between;gap:14px;padding-block:13px;border-bottom:1px solid var(--line);font-size:16px}
+.creds li span{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;padding-top:3px}
+@media (max-width:900px){.kit{grid-template-columns:minmax(0,1fr);gap:40px}}
+@media (max-width:520px){.kit dl div{grid-template-columns:minmax(0,1fr);gap:2px}}
+
+/* matcher */
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:start}
+.match textarea{width:100%;min-height:300px;resize:vertical;padding:14px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:13.5px/1.55 var(--mono)}
+.match .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:center}
+.note{font-size:13.5px;color:var(--muted)}
+.out{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.score b{font-family:var(--display);font-stretch:108%;font-size:58px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.score span{color:var(--muted);font-size:15.5px;max-width:36ch}
+.bar{height:8px;border-radius:4px;background:var(--line);margin:16px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent-fill),var(--ok-fill));border-radius:4px;transition:width .4s}
+.hits{list-style:none;margin:14px 0 0;padding:0}
+.hits li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;padding-block:11px;border-top:1px solid var(--line);font-size:15px}
+.hits strong{font-weight:600}
+.hits em{display:block;font:normal 12px var(--mono);color:var(--muted);margin-top:3px}
+.hits .q{display:block;font-size:13px;color:var(--muted);margin-top:4px;font-style:italic}
+.gaps{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;color:var(--muted)}
+.gaps span{display:inline-block;font:12.5px var(--mono);border:1px dashed var(--line-strong);border-radius:5px;padding:2px 7px;margin:4px 4px 0 0}
+.gaps span.nice{border-style:dotted;opacity:.8}
+@media (max-width:900px){.match{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.hits li{grid-template-columns:minmax(0,1fr);gap:2px}}
+
+/* role lens */
+.lens{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px}
+.lens .label{margin-right:4px;color:var(--muted)}
+.lens button{font:500 14px var(--body);padding:7px 13px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer}
+.lens button:hover{border-color:var(--ink)}
+.lens button[aria-pressed="true"]{background:var(--ink);color:var(--room);border-color:var(--ink)}
+
+/* contact + footer: back in the dark room */
+#contact{background:radial-gradient(50% 90% at 100% 100%,rgba(47,123,255,.22),transparent 70%),var(--room);border-top:0}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end}
+.contact h2{font-size:clamp(32px,4.8vw,58px);font-weight:800;font-stretch:112%}
+.contact dl{margin:0;border-top:2px solid var(--ink)}
+.contact dl div{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-block:14px;border-bottom:1px solid var(--line)}
+.contact dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.contact dd{margin:0;font-size:17px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;overflow-wrap:anywhere}
+@media (max-width:900px){.contact{grid-template-columns:minmax(0,1fr)}}
+footer{padding-block:26px;background:var(--room);border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+@media print{
+  .nav,.rackcol,#match,#stack,.actions,.lens,.status,body::before{display:none!important}
+  .hero,#contact,footer{background:none;color:#000;--ink:#000;--muted:#333;--line:#ccc;--accent:#000}
+  .hero::before{display:none}
+  .hero h1 em{color:#000;background:none}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:0 16px}
+  .stats div{background:none}
+  section{padding-block:20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i,.btn{transition:none}}
+</style>
+<link rel="canonical" href="https://www.samarthpatel106.com/">
+<meta property="og:url" content="https://www.samarthpatel106.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23060a13'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234ade80'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>Samarth Patel</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#match">Match a role</a>
+      <a class="btn cta sm" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="status"><i></i>Open to new roles · Chicago, IL</div>
+      <h1>Infrastructure that stays up <em>while it changes.</em></h1>
+      <p class="lede" id="lede"><b>Systems and infrastructure engineer</b> with 8 years running and modernizing enterprise Windows, Linux, VMware and Azure in HITRUST and SOC audited environments: platform upgrades, storage and OS migrations, and the automation that keeps builds consistent. I also build my own tooling in Python, Docker and n8n, including AI agents.</p>
+      <div class="lens" role="group" aria-label="Show my experience for a role">
+        <span class="label">Hiring for</span>
+        <button type="button" id="lens-infra" data-lens="infra" aria-pressed="true">Infrastructure engineer</button>
+        <button type="button" id="lens-sysadmin" data-lens="sysadmin" aria-pressed="false">Systems administrator</button>
+        <button type="button" id="lens-cloud" data-lens="cloud" aria-pressed="false">Cloud / Azure engineer</button>
+      </div>
+      <div class="actions">
+        <a class="btn cta" href="#match">Check me against your job posting</a>
+        <a class="btn" href="Samarth_Patel_Resume.pdf" download>Download résumé (PDF)</a>
+      </div>
+      <div class="stats">
+        <div><b>8</b><span>years in enterprise infrastructure</span></div>
+        <div><b>15,000+</b><span>Unix/Linux servers supported at Verizon</span></div>
+        <div><b>0</b><span>production disruption in a full storage migration</span></div>
+        <div><b>AZ-104</b><span>Azure Administrator Associate</span></div>
+      </div>
+    </div>
+
+    <div class="rackcol">
+      <div class="stage" id="stage">
+        <canvas id="rack" aria-label="Interactive 3D server rack. Each unit is an area of my work. Use the buttons below to select a unit."></canvas>
+        <span class="hint" id="hint">loading 3D rack…</span>
+      </div>
+      <div class="units" id="units" role="group" aria-label="Rack units"></div>
+      <div class="detail" aria-live="polite">
+        <span class="label" id="d-tag"></span>
+        <h3 id="d-name"></h3>
+        <p id="d-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Selected work</span>
+      <h2>Platform upgrades and migrations in production</h2>
+      <p>Seven projects where I changed the platform underneath systems that had to stay in service: compute, storage, operating systems, identity, endpoints and access.</p>
+    </div>
+    <div class="wstats">
+      <div><b>7</b><span>production platform projects</span></div>
+      <div><b>15,000+</b><span>servers under automated builds and patching</span></div>
+      <div><b>0</b><span>production disruption on the storage migration</span></div>
+      <div><b>2</b><span>enterprise environments: HITRUST / SOC audited and 24x7 telecom</span></div>
+    </div>
+    <ol class="ledger" aria-label="Project index"><li><a href="#w-vsphere"><span class="lg-n">VMware vSphere 7 to 8 upgrade</span><span class="lg-a">Virtualization</span><span class="lg-w">Wolters Kluwer</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-powerstore"><span class="lg-n">Storage migration to PowerStore 500T</span><span class="lg-a">Storage</span><span class="lg-w">Wolters Kluwer</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-rhel"><span class="lg-n">RHEL 7 to RHEL 8 migration (lead)</span><span class="lg-a">Linux</span><span class="lg-w">Wolters Kluwer</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-fleet"><span class="lg-n">Builds and patching for 15,000+ servers</span><span class="lg-a">Linux automation</span><span class="lg-w">Verizon</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-sso"><span class="lg-n">SaaS SSO through Entra ID</span><span class="lg-a">Identity</span><span class="lg-w">Wolters Kluwer</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-endpoint"><span class="lg-n">Intune, NinjaOne and security agents</span><span class="lg-a">Endpoint</span><span class="lg-w">Wolters Kluwer</span><span class="pill ok"><i></i>Complete</span></a></li><li><a href="#w-zpa"><span class="lg-n">Zscaler Private Access</span><span class="lg-a">Security</span><span class="lg-w">Wolters Kluwer</span><span class="pill run"><i></i>In progress</span></a></li></ol>
+    <h3 class="grp"><span class="label">Compute, storage and OS</span></h3>
+    <div class="work">
+      <article id="w-vsphere">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Rolling upgrade · host by host</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: vCenter upgraded to 8.x above four ESXi hosts. Two hosts run 8.x, one is in maintenance mode with its VMs moved off by vMotion, and one still runs 7.0.3."><rect class="f-ok" x="160" y="8" width="160" height="38" rx="6"/><text class="f-ton" x="240" y="24" text-anchor="middle">vCenter Server</text><text class="f-ton" x="240" y="39" text-anchor="middle">7.x → 8.x</text><path class="f-line" d="M240 46V62M64 62H412M64 62V76M180 62V76M296 62V76M412 62V76"/><rect class="f-box" x="14" y="76" width="100" height="118" rx="6"/><path class="f-ok" d="M14 100V82a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v18z"/><text class="f-ton" x="64" y="92" text-anchor="middle">esx01 · 8.x</text><rect class="f-tint" x="26" y="110" width="76" height="14" rx="3"/><text class="f-ts" x="64" y="121" text-anchor="middle">vm</text><rect class="f-tint" x="26" y="130" width="76" height="14" rx="3"/><text class="f-ts" x="64" y="141" text-anchor="middle">vm</text><rect class="f-tint" x="26" y="150" width="76" height="14" rx="3"/><text class="f-ts" x="64" y="161" text-anchor="middle">vm</text><rect class="f-box" x="130" y="76" width="100" height="118" rx="6"/><path class="f-ok" d="M130 100V82a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v18z"/><text class="f-ton" x="180" y="92" text-anchor="middle">esx02 · 8.x</text><rect class="f-tint" x="142" y="110" width="76" height="14" rx="3"/><text class="f-ts" x="180" y="121" text-anchor="middle">vm</text><rect class="f-tint" x="142" y="130" width="76" height="14" rx="3"/><text class="f-ts" x="180" y="141" text-anchor="middle">vm</text><rect class="f-tint" x="142" y="150" width="76" height="14" rx="3"/><text class="f-ts" x="180" y="161" text-anchor="middle">vm</text><rect class="f-tint" x="142" y="170" width="76" height="14" rx="3"/><text class="f-ts" x="180" y="181" text-anchor="middle">vm</text><rect class="f-box f-hot" x="246" y="76" width="100" height="118" rx="6"/><path class="f-acc" d="M246 100V82a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v18z"/><text class="f-ton" x="296" y="92" text-anchor="middle">esx03 · MAINT</text><text class="f-t" x="296" y="140" text-anchor="middle">VMs moved</text><text class="f-t" x="296" y="155" text-anchor="middle">off host</text><rect class="f-box" x="362" y="76" width="100" height="118" rx="6"/><path class="f-ink" d="M362 100V82a6 6 0 0 1 6-6h88a6 6 0 0 1 6 6v18z"/><text class="f-tinv" x="412" y="92" text-anchor="middle">esx04 · 7.0.3</text><rect class="f-tint" x="374" y="110" width="76" height="14" rx="3"/><text class="f-ts" x="412" y="121" text-anchor="middle">vm</text><rect class="f-tint" x="374" y="130" width="76" height="14" rx="3"/><text class="f-ts" x="412" y="141" text-anchor="middle">vm</text><rect class="f-tint" x="374" y="150" width="76" height="14" rx="3"/><text class="f-ts" x="412" y="161" text-anchor="middle">vm</text><path class="f-flow" d="M296 198C296 222 180 222 180 202"/><path class="f-arrow" d="M175 207l5-7 5 7"/><text class="f-tb" x="238" y="234" text-anchor="middle">vMotion</text></svg></div>
+          <ol class="rail"><li>Pre-checks</li><li>Maintenance mode</li><li>vMotion off</li><li>Upgrade</li><li>Validate</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Virtualization</span>
+          <h3>VMware vSphere 7 to 8 upgrade</h3>
+          <dl><dt>Scope</dt><dd>ESXi 7.0.3 to 8.x and vCenter 7.x to 8.x on the production cluster.</dd><dt>Method</dt><dd>Controlled changes under change control: pre-checks, one host at a time in maintenance mode with workloads moved off by vMotion, and validation after each change.</dd><dt>Outcome</dt><dd class="result">Production cluster and vCenter running 8.x.</dd></dl>
+        </div>
+      </article>
+      <article id="w-powerstore">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Storage migration · live</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: ESXi hosts connect through two zoned SAN fabrics to the previous array and the new Dell PowerStore 500T. Workloads move live from the old array to PowerStore while production I/O stays steady."><text class="f-t" x="14" y="16">COMPUTE</text><text class="f-t" x="176" y="16">ZONED SAN</text><text class="f-t" x="352" y="16">STORAGE</text><rect class="f-box" x="14" y="30" width="96" height="32" rx="5"/><text class="f-tb" x="62" y="50" text-anchor="middle">ESXi host</text><path class="f-line" d="M110 46L176 55M110 46L176 125"/><rect class="f-box" x="14" y="76" width="96" height="32" rx="5"/><text class="f-tb" x="62" y="96" text-anchor="middle">ESXi host</text><path class="f-line" d="M110 92L176 55M110 92L176 125"/><rect class="f-box" x="14" y="122" width="96" height="32" rx="5"/><text class="f-tb" x="62" y="142" text-anchor="middle">ESXi host</text><path class="f-line" d="M110 138L176 55M110 138L176 125"/><path class="f-line f-dash" d="M286 55L352 40M286 125L352 40"/><path class="f-okline2" d="M286 55L352 150M286 125L352 150"/><rect class="f-tint" x="176" y="40" width="110" height="30" rx="5"/><text class="f-tb" x="231" y="59" text-anchor="middle">Fabric A</text><rect class="f-tint" x="176" y="110" width="110" height="30" rx="5"/><text class="f-tb" x="231" y="129" text-anchor="middle">Fabric B</text><rect class="f-ghost" x="352" y="22" width="114" height="54" rx="6"/><text class="f-t" x="409" y="40" text-anchor="middle">previous array</text><rect class="f-ghost" x="363" y="50" width="12" height="16" rx="2"/><rect class="f-ghost" x="379" y="50" width="12" height="16" rx="2"/><rect class="f-ghost" x="395" y="50" width="12" height="16" rx="2"/><rect class="f-ghost" x="411" y="50" width="12" height="16" rx="2"/><rect class="f-ghost" x="427" y="50" width="12" height="16" rx="2"/><rect class="f-ghost" x="443" y="50" width="12" height="16" rx="2"/><rect class="f-ink" x="352" y="118" width="114" height="78" rx="6"/><text class="f-tinv" x="409" y="138" text-anchor="middle">PowerStore</text><text class="f-tinv" x="409" y="152" text-anchor="middle">500T</text><rect class="f-ok f-led" style="animation-delay:0.00s" x="363" y="164" width="12" height="20" rx="2"/><rect class="f-ok f-led" style="animation-delay:0.18s" x="379" y="164" width="12" height="20" rx="2"/><rect class="f-ok f-led" style="animation-delay:0.36s" x="395" y="164" width="12" height="20" rx="2"/><rect class="f-ok f-led" style="animation-delay:0.54s" x="411" y="164" width="12" height="20" rx="2"/><rect class="f-ok f-led" style="animation-delay:0.72s" x="427" y="164" width="12" height="20" rx="2"/><rect class="f-ok f-led" style="animation-delay:0.90s" x="443" y="164" width="12" height="20" rx="2"/><path class="f-flow" d="M409 78V112"/><path class="f-arrow" d="M404 106l5 7 5-7"/><rect class="f-chip" x="296" y="86" width="104" height="18" rx="9"/><text class="f-tb" x="348" y="99" text-anchor="middle">live migration</text><text class="f-t" x="14" y="226">production I/O</text><path class="f-uptime" d="M118 222H466"/><path class="f-tick" d="M130 217V227"/><path class="f-tick" d="M154 217V227"/><path class="f-tick" d="M178 217V227"/><path class="f-tick" d="M202 217V227"/><path class="f-tick" d="M226 217V227"/><path class="f-tick" d="M250 217V227"/><path class="f-tick" d="M274 217V227"/><path class="f-tick" d="M298 217V227"/><path class="f-tick" d="M322 217V227"/><path class="f-tick" d="M346 217V227"/><path class="f-tick" d="M370 217V227"/><path class="f-tick" d="M394 217V227"/><path class="f-tick" d="M418 217V227"/><path class="f-tick" d="M442 217V227"/><text class="f-okt" x="466" y="210" text-anchor="end">no disruption</text></svg></div>
+          <ol class="rail"><li>SAN zoning</li><li>Datastores</li><li>Live migration</li><li>Windows agreed</li><li>Old array out</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Storage</span>
+          <h3>Storage migration to Dell PowerStore 500T</h3>
+          <dl><dt>Scope</dt><dd>Production workloads moved from the existing storage to a new Dell PowerStore 500T array.</dd><dt>Method</dt><dd>SAN zoning, datastore creation and live storage migration, with maintenance windows scheduled with application and server owners.</dd><dt>Outcome</dt><dd class="result">No production disruption.</dd></dl>
+        </div>
+      </article>
+      <article id="w-rhel">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>OS modernization · project lead</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: end-of-life RHEL 7 servers pass through Ansible playbooks for patching, packages, users and sudo, and service checks, and come out as RHEL 8 servers."><text class="f-t" x="14" y="18">RHEL 7 · END OF LIFE</text><text class="f-t" x="466" y="18" text-anchor="end">RHEL 8 · REBUILT</text><rect class="f-ghost" x="14" y="32" width="42" height="22" rx="4"/><text class="f-t" x="35" y="47" text-anchor="middle">el7</text><rect class="f-ok" x="332" y="32" width="42" height="22" rx="4"/><text class="f-ton" x="353" y="47" text-anchor="middle">el8</text><rect class="f-ghost" x="60" y="32" width="42" height="22" rx="4"/><text class="f-t" x="81" y="47" text-anchor="middle">el7</text><rect class="f-ok" x="378" y="32" width="42" height="22" rx="4"/><text class="f-ton" x="399" y="47" text-anchor="middle">el8</text><rect class="f-ghost" x="106" y="32" width="42" height="22" rx="4"/><text class="f-t" x="127" y="47" text-anchor="middle">el7</text><rect class="f-ok" x="424" y="32" width="42" height="22" rx="4"/><text class="f-ton" x="445" y="47" text-anchor="middle">el8</text><rect class="f-ghost" x="14" y="60" width="42" height="22" rx="4"/><text class="f-t" x="35" y="75" text-anchor="middle">el7</text><rect class="f-ok" x="332" y="60" width="42" height="22" rx="4"/><text class="f-ton" x="353" y="75" text-anchor="middle">el8</text><rect class="f-ghost" x="60" y="60" width="42" height="22" rx="4"/><text class="f-t" x="81" y="75" text-anchor="middle">el7</text><rect class="f-ok" x="378" y="60" width="42" height="22" rx="4"/><text class="f-ton" x="399" y="75" text-anchor="middle">el8</text><rect class="f-ghost" x="106" y="60" width="42" height="22" rx="4"/><text class="f-t" x="127" y="75" text-anchor="middle">el7</text><rect class="f-ok" x="424" y="60" width="42" height="22" rx="4"/><text class="f-ton" x="445" y="75" text-anchor="middle">el8</text><rect class="f-ghost" x="14" y="88" width="42" height="22" rx="4"/><text class="f-t" x="35" y="103" text-anchor="middle">el7</text><rect class="f-ok" x="332" y="88" width="42" height="22" rx="4"/><text class="f-ton" x="353" y="103" text-anchor="middle">el8</text><rect class="f-ghost" x="60" y="88" width="42" height="22" rx="4"/><text class="f-t" x="81" y="103" text-anchor="middle">el7</text><rect class="f-ok" x="378" y="88" width="42" height="22" rx="4"/><text class="f-ton" x="399" y="103" text-anchor="middle">el8</text><rect class="f-ghost" x="106" y="88" width="42" height="22" rx="4"/><text class="f-t" x="127" y="103" text-anchor="middle">el7</text><rect class="f-ok" x="424" y="88" width="42" height="22" rx="4"/><text class="f-ton" x="445" y="103" text-anchor="middle">el8</text><rect class="f-ghost" x="14" y="116" width="42" height="22" rx="4"/><text class="f-t" x="35" y="131" text-anchor="middle">el7</text><rect class="f-ok" x="332" y="116" width="42" height="22" rx="4"/><text class="f-ton" x="353" y="131" text-anchor="middle">el8</text><rect class="f-ghost" x="60" y="116" width="42" height="22" rx="4"/><text class="f-t" x="81" y="131" text-anchor="middle">el7</text><rect class="f-ok" x="378" y="116" width="42" height="22" rx="4"/><text class="f-ton" x="399" y="131" text-anchor="middle">el8</text><rect class="f-ghost" x="106" y="116" width="42" height="22" rx="4"/><text class="f-t" x="127" y="131" text-anchor="middle">el7</text><rect class="f-ok" x="424" y="116" width="42" height="22" rx="4"/><text class="f-ton" x="445" y="131" text-anchor="middle">el8</text><rect class="f-box" x="174" y="32" width="132" height="106" rx="6"/><path class="f-ink" d="M174 56V38a6 6 0 0 1 6-6h120a6 6 0 0 1 6 6v18z"/><text class="f-tinv" x="240" y="48" text-anchor="middle">Ansible playbooks</text><circle class="f-acc" cx="190" cy="72" r="3"/><text class="f-tb" x="200" y="76">patching</text><circle class="f-acc" cx="190" cy="90" r="3"/><text class="f-tb" x="200" y="94">packages</text><circle class="f-acc" cx="190" cy="108" r="3"/><text class="f-tb" x="200" y="112">users + sudo</text><circle class="f-acc" cx="190" cy="126" r="3"/><text class="f-tb" x="200" y="130">service checks</text><path class="f-flow" d="M150 86H170"/><path class="f-arrow" d="M165 81l7 5-7 5"/><path class="f-flow ok" d="M308 86H328"/><path class="f-arrow ok" d="M323 81l7 5-7 5"/><path class="f-line" d="M14 178H466"/><circle class="f-acc" cx="60" cy="178" r="5"/><circle class="f-ok" cx="460" cy="178" r="5"/><path class="f-okline2" d="M60 178H460" stroke-dasharray="2 4"/><text class="f-tb" x="14" y="202">Jun 30, 2024</text><text class="f-t" x="14" y="217">RHEL 7 maintenance support ends</text><text class="f-tb" x="466" y="202" text-anchor="end">EOL servers retired</text><text class="f-t" x="466" y="217" text-anchor="end">one Ansible baseline</text></svg></div>
+          <ol class="rail"><li>Rebuild or upgrade</li><li>Ansible baseline</li><li>Validate services</li><li>Retire RHEL 7</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Linux · Project lead</span>
+          <h3>RHEL 7 to RHEL 8 migration</h3>
+          <dl><dt>Scope</dt><dd>Red Hat Enterprise Linux 7 servers reaching end of life.</dd><dt>Method</dt><dd>Led the migration: servers rebuilt and upgraded, with Ansible playbooks keeping patching, packages, users and service checks consistent across builds.</dd><dt>Outcome</dt><dd class="result">End-of-life systems retired.</dd></dl>
+        </div>
+      </article>
+      <article id="w-fleet">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Fleet automation · at scale</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: Red Hat Satellite with Kickstart builds and Ansible plus Bash automation feed a fleet of more than 15,000 Unix and Linux servers, drawn as 100 dots of about 150 servers each."><rect class="f-ink" x="14" y="26" width="152" height="52" rx="6"/><text class="f-tinv" x="90" y="48" text-anchor="middle">Red Hat Satellite</text><text class="f-tinv" x="90" y="64" text-anchor="middle">+ Kickstart builds</text><rect class="f-acc" x="14" y="92" width="152" height="66" rx="6"/><text class="f-ton" x="90" y="113" text-anchor="middle">Ansible + Bash</text><text class="f-ton" x="90" y="129" text-anchor="middle">patch · config</text><text class="f-ton" x="90" y="144" text-anchor="middle">users · health</text><path class="f-line" d="M166 52H184M184 28V202"/><path class="f-flow" d="M166 125H192"/><path class="f-arrow" d="M187 120l7 5-7 5"/><text class="f-t" x="204" y="16">15,000+ UNIX/LINUX SERVERS · 24x7</text><circle class="f-dot" style="animation-delay:0.00s" cx="212" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.14s" cx="238" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.28s" cx="264" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.42s" cx="290" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.56s" cx="316" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.70s" cx="342" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.84s" cx="368" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.98s" cx="394" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:1.12s" cx="420" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:1.26s" cx="446" cy="32" r="6.5"/><circle class="f-dot" style="animation-delay:0.05s" cx="212" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.19s" cx="238" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.33s" cx="264" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.47s" cx="290" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.61s" cx="316" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.75s" cx="342" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.89s" cx="368" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:1.03s" cx="394" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:1.17s" cx="420" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:1.31s" cx="446" cy="51" r="6.5"/><circle class="f-dot" style="animation-delay:0.10s" cx="212" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.24s" cx="238" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.38s" cx="264" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.52s" cx="290" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.66s" cx="316" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.80s" cx="342" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.94s" cx="368" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:1.08s" cx="394" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:1.22s" cx="420" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:1.36s" cx="446" cy="70" r="6.5"/><circle class="f-dot" style="animation-delay:0.15s" cx="212" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.29s" cx="238" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.43s" cx="264" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.57s" cx="290" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.71s" cx="316" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.85s" cx="342" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.99s" cx="368" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:1.13s" cx="394" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:1.27s" cx="420" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:1.41s" cx="446" cy="89" r="6.5"/><circle class="f-dot" style="animation-delay:0.20s" cx="212" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.34s" cx="238" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.48s" cx="264" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.62s" cx="290" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.76s" cx="316" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.90s" cx="342" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:1.04s" cx="368" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:1.18s" cx="394" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:1.32s" cx="420" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:1.46s" cx="446" cy="108" r="6.5"/><circle class="f-dot" style="animation-delay:0.25s" cx="212" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.39s" cx="238" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.53s" cx="264" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.67s" cx="290" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.81s" cx="316" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.95s" cx="342" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:1.09s" cx="368" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:1.23s" cx="394" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:1.37s" cx="420" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:1.51s" cx="446" cy="127" r="6.5"/><circle class="f-dot" style="animation-delay:0.30s" cx="212" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:0.44s" cx="238" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:0.58s" cx="264" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:0.72s" cx="290" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:0.86s" cx="316" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:1.00s" cx="342" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:1.14s" cx="368" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:1.28s" cx="394" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:1.42s" cx="420" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:1.56s" cx="446" cy="146" r="6.5"/><circle class="f-dot" style="animation-delay:0.35s" cx="212" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:0.49s" cx="238" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:0.63s" cx="264" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:0.77s" cx="290" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:0.91s" cx="316" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:1.05s" cx="342" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:1.19s" cx="368" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:1.33s" cx="394" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:1.47s" cx="420" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:1.61s" cx="446" cy="165" r="6.5"/><circle class="f-dot" style="animation-delay:0.40s" cx="212" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:0.54s" cx="238" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:0.68s" cx="264" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:0.82s" cx="290" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:0.96s" cx="316" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:1.10s" cx="342" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:1.24s" cx="368" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:1.38s" cx="394" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:1.52s" cx="420" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:1.66s" cx="446" cy="184" r="6.5"/><circle class="f-dot" style="animation-delay:0.45s" cx="212" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:0.59s" cx="238" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:0.73s" cx="264" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:0.87s" cx="290" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.01s" cx="316" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.15s" cx="342" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.29s" cx="368" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.43s" cx="394" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.57s" cx="420" cy="203" r="6.5"/><circle class="f-dot" style="animation-delay:1.71s" cx="446" cy="203" r="6.5"/><text class="f-t" x="14" y="182">1 dot ≈ 150 servers</text><text class="f-t" x="14" y="198">RHEL · CentOS</text><text class="f-t" x="14" y="214">Solaris · AIX</text></svg></div>
+          <ol class="rail"><li>Satellite build</li><li>Kickstart</li><li>Ansible baseline</li><li>Patch runs</li><li>Health checks</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Verizon · Linux at scale</span>
+          <h3>Consistent builds and patching for 15,000+ servers</h3>
+          <dl><dt>Scope</dt><dd>15,000+ Unix/Linux servers (RHEL, CentOS, Solaris, AIX) in 24x7 business-critical production.</dd><dt>Method</dt><dd>RHEL builds on physical and virtual servers through Red Hat Satellite and Kickstart; Ansible playbooks and Bash scripts for patching, configuration, user management and health checks.</dd><dt>Outcome</dt><dd class="result">Less manual effort and consistent server builds.</dd></dl>
+        </div>
+      </article>
+    </div>
+    <h3 class="grp"><span class="label">Identity, endpoints and access</span></h3>
+    <div class="work">
+      <article id="w-sso">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Identity · single sign-on</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: users and groups are assigned through Microsoft Entra ID, which provides single sign-on to Five9, Salesforce, NinjaOne and other SaaS applications."><text class="f-t" x="14" y="40">WHO GETS ACCESS</text><rect class="f-box" x="14" y="54" width="100" height="34" rx="5"/><text class="f-tb" x="64" y="75" text-anchor="middle">Users</text><rect class="f-box" x="14" y="104" width="100" height="34" rx="5"/><text class="f-tb" x="64" y="125" text-anchor="middle">Groups</text><path class="f-line" d="M114 71C146 71 150 108 168 112M114 121C140 121 150 122 168 122"/><circle class="f-ring" cx="216" cy="118" r="56"/><circle class="f-acc" cx="216" cy="118" r="44"/><text class="f-ton" x="216" y="114" text-anchor="middle">Entra ID</text><text class="f-ton" x="216" y="130" text-anchor="middle">SSO</text><path class="f-flow" style="animation-delay:0.0s" d="M272 118C306 118 306 44 340 44"/><path class="f-flow" style="animation-delay:0.2s" d="M272 118C306 118 306 92 340 92"/><path class="f-flow" style="animation-delay:0.4s" d="M272 118C306 118 306 140 340 140"/><path class="f-flow" style="animation-delay:0.6s" d="M272 118C306 118 306 188 340 188"/><rect class="f-box" x="340" y="28" width="126" height="32" rx="5"/><text class="f-tb" x="403" y="48" text-anchor="middle">Five9</text><rect class="f-box" x="340" y="76" width="126" height="32" rx="5"/><text class="f-tb" x="403" y="96" text-anchor="middle">Salesforce</text><rect class="f-box" x="340" y="124" width="126" height="32" rx="5"/><text class="f-tb" x="403" y="144" text-anchor="middle">NinjaOne</text><rect class="f-ghost" x="340" y="172" width="126" height="32" rx="5"/><text class="f-t" x="403" y="192" text-anchor="middle">+ other SaaS</text><text class="f-t" x="14" y="228">access assigned per app, by user and group</text></svg></div>
+          <ol class="rail"><li>Integrate app</li><li>Assign users + groups</li><li>Provision</li><li>Access controls</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Identity</span>
+          <h3>SaaS single sign-on through Microsoft Entra ID</h3>
+          <dl><dt>Scope</dt><dd>Five9, Salesforce, NinjaOne and other SaaS applications.</dd><dt>Method</dt><dd>Integrated each app with single sign-on through Entra ID and set up its user and group assignments; handle Entra ID provisioning, groups and access controls.</dd><dt>Outcome</dt><dd class="result">Apps sign in with Entra ID identities, with access set per app.</dd></dl>
+        </div>
+      </article>
+      <article id="w-endpoint">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Endpoint management · layered</span><span class="pill ok"><i></i>Complete</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 240" role="img" aria-label="Diagram: the layers on a managed endpoint, from Intune enrollment and configuration at the base, through NinjaOne RMM and patching, to Defender and CrowdStrike, Rapid7, and BigFix, Flexera and Axonius inventory agents."><rect class="f-box" x="22" y="78" width="92" height="60" rx="4"/><rect class="f-tint" x="30" y="86" width="76" height="44" rx="2"/><path class="f-box" d="M10 142H126L118 152H18Z"/><text class="f-t" x="68" y="174" text-anchor="middle">managed</text><text class="f-t" x="68" y="188" text-anchor="middle">endpoint</text><path class="f-line" d="M126 108H138M138 29V179"/><path class="f-line" d="M138 29H150"/><rect class="f-box f-layer" style="animation-delay:1.25s" x="150" y="16" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="33">Inventory</text><text class="f-t" x="456" y="33" text-anchor="end">BigFix · Flexera · Axonius</text><path class="f-line" d="M138 59H150"/><rect class="f-box f-layer" style="animation-delay:1.00s" x="150" y="46" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="63">Vulnerability</text><text class="f-t" x="456" y="63" text-anchor="end">Rapid7</text><path class="f-line" d="M138 89H150"/><rect class="f-box f-layer" style="animation-delay:0.75s" x="150" y="76" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="93">EDR / AV</text><text class="f-t" x="456" y="93" text-anchor="end">Defender · CrowdStrike</text><path class="f-line" d="M138 119H150"/><rect class="f-oktint f-layer" style="animation-delay:0.50s" x="150" y="106" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="123">RMM + patching</text><text class="f-t" x="456" y="123" text-anchor="end">NinjaOne</text><path class="f-line" d="M138 149H150"/><rect class="f-tint f-layer" style="animation-delay:0.25s" x="150" y="136" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="153">Config + compliance</text><text class="f-t" x="456" y="153" text-anchor="end">Intune</text><path class="f-line" d="M138 179H150"/><rect class="f-tint f-layer" style="animation-delay:0.00s" x="150" y="166" width="316" height="26" rx="4"/><text class="f-tb" x="162" y="183">Enrollment</text><text class="f-t" x="456" y="183" text-anchor="end">Intune</text><rect class="f-tint" x="150" y="212" width="12" height="12" rx="2"/><text class="f-t" x="168" y="222">Intune</text><rect class="f-oktint" x="236" y="212" width="12" height="12" rx="2"/><text class="f-t" x="254" y="222">NinjaOne</text><rect class="f-box" x="336" y="212" width="12" height="12" rx="2"/><text class="f-t" x="354" y="222">security agents</text></svg></div>
+          <ol class="rail"><li>Enroll</li><li>Config + compliance</li><li>RMM + patching</li><li>Security agents</li></ol>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Endpoint and security</span>
+          <h3>Intune, NinjaOne and security agent rollout</h3>
+          <dl><dt>Scope</dt><dd>Device management, monitoring, patching and security tooling across endpoints and servers.</dd><dt>Method</dt><dd>Set up Intune enrollment, configuration and compliance policies; deployed NinjaOne RMM; deploy and maintain Defender for Endpoint, CrowdStrike Falcon, Rapid7, BigFix, Flexera and Axonius agents, including a BigFix relay VM.</dd><dt>Outcome</dt><dd class="result">Endpoints enrolled, policy-managed, patched and monitored from one stack.</dd></dl>
+        </div>
+      </article>
+      <article id="w-zpa">
+        <figure class="fig">
+          <figcaption class="fig-h"><span>Zero trust access · how ZPA connects</span><span class="pill run"><i></i>In progress</span></figcaption>
+          <div class="fig-c"><svg viewBox="0 0 480 244" role="img" aria-label="Diagram of how Zscaler Private Access connects: a remote user and an App Connector in the data center both make outbound connections to the Zscaler cloud, which brokers access to private apps with no inbound ports opened."><rect class="f-tint" x="150" y="12" width="180" height="50" rx="25"/><text class="f-tb" x="240" y="34" text-anchor="middle">Zscaler cloud</text><text class="f-t" x="240" y="50" text-anchor="middle">brokers each session</text><rect class="f-box" x="30" y="120" width="80" height="54" rx="4"/><text class="f-t" x="70" y="151" text-anchor="middle">client</text><path class="f-box" d="M18 178H122L114 188H26Z"/><text class="f-tb" x="70" y="210" text-anchor="middle">remote user</text><rect class="f-ghost" x="250" y="96" width="216" height="136" rx="8"/><text class="f-t" x="262" y="114">DATA CENTER</text><rect class="f-acc" x="262" y="136" width="96" height="36" rx="5"/><text class="f-ton" x="310" y="151" text-anchor="middle">App</text><text class="f-ton" x="310" y="164" text-anchor="middle">Connector</text><path class="f-line" d="M358 154L374 137"/><rect class="f-box" x="374" y="126" width="82" height="22" rx="4"/><text class="f-tb" x="415" y="141" text-anchor="middle">private app</text><path class="f-line" d="M358 154L374 165"/><rect class="f-box" x="374" y="154" width="82" height="22" rx="4"/><text class="f-tb" x="415" y="169" text-anchor="middle">private app</text><path class="f-line" d="M358 154L374 193"/><rect class="f-box" x="374" y="182" width="82" height="22" rx="4"/><text class="f-tb" x="415" y="197" text-anchor="middle">private app</text><path class="f-flow" d="M110 128C126 96 150 78 178 62"/><path class="f-flow" d="M310 136C310 104 300 82 290 62"/><text class="f-t" x="152" y="100" text-anchor="end">outbound</text><text class="f-t" x="318" y="92">outbound</text><text class="f-okt" x="358" y="224" text-anchor="middle">no inbound ports</text></svg></div>
+          <p class="fig-note"><i></i>Deployment in progress. The diagram shows how ZPA connects.</p>
+        </figure>
+        <div class="body">
+          <span class="meta">Wolters Kluwer · Security</span>
+          <h3>Zscaler Private Access deployment</h3>
+          <dl><dt>Scope</dt><dd>Zscaler Private Access (ZPA) for user access to internal applications.</dd><dt>Role</dt><dd>Deploying ZPA alongside the existing security agent stack.</dd><dt>Status</dt><dd class="result">In progress.</dd></dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Personal projects</span>
+      <h2>What I build and run on my own time</h2>
+      <p>Each of these runs in production. They are where I work with the things infrastructure roles are moving toward: code, containers, pipelines and AI.</p>
+    </div>
+    <div class="projects">
+      <article>
+        <span class="label">Security · Web app</span>
+        <h3>Domain security scanner</h3>
+        <p>A live web app that assesses a domain's public security posture and breach exposure, then delivers a PDF report by email. Deployed from Git on every merge.</p>
+        <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>PostgreSQL</li><li>Vercel CI/CD</li><li>Git</li></ul>
+      </article>
+      <article>
+        <span class="label">Linux · Containers</span>
+        <h3>Self-hosted automation server</h3>
+        <p>An Ubuntu 24 server I built and run: Docker services behind Caddy with automatic TLS, hosting n8n workflows that connect APIs and AI models.</p>
+        <ul class="chips"><li>Ubuntu</li><li>Docker</li><li>Caddy</li><li>n8n</li><li>DigitalOcean</li></ul>
+      </article>
+      <article>
+        <span class="label">Python · Linux service</span>
+        <h3>Market-data alerting service</h3>
+        <p>A long-running Python service under systemd that watches market data, runs an AI vision check through the Anthropic API, and sends alerts to Telegram.</p>
+        <ul class="chips"><li>Python</li><li>systemd</li><li>Anthropic API</li><li>Linux</li></ul>
+      </article>
+      <article>
+        <span class="label">AI · Automation</span>
+        <h3>AI agent workflows</h3>
+        <p>Voice agents and workflow automations built on Claude, GPT and Gemini models and orchestrated in n8n.</p>
+        <ul class="chips"><li>Anthropic API</li><li>OpenAI API</li><li>n8n</li><li>Python</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Experience</span>
+      <h2>8 years, three production environments</h2>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>Jul 2023 – Present</b>Chicago, IL</div>
+      <div>
+        <h3>Systems Engineer <span>· Wolters Kluwer</span></h3>
+        <ul>
+          <li>Administer the production VMware ESXi cluster and vCenter Server Appliance, and build servers in Microsoft Azure: VM provisioning, networking and storage.</li>
+          <li>Manage Active Directory and Microsoft Entra ID; set up Intune enrollment, configuration and compliance policies, and deployed NinjaOne RMM.</li>
+          <li>Integrated SaaS applications with single sign-on through Microsoft Entra ID, including Five9, Salesforce and NinjaOne.</li>
+          <li>Run monthly Windows patching with WSUS and PDQ; write Ansible playbooks for Linux patching, packages, user and sudo configuration, and service checks.</li>
+          <li>Deploy and maintain Defender for Endpoint, CrowdStrike Falcon, Rapid7, BigFix, Flexera and Axonius agents; deploying Zscaler Private Access.</li>
+          <li>Remediate vulnerability findings, including exposed credentials and insecure key storage, and produce HITRUST and SOC control evidence and access reviews.</li>
+          <li>Provide Level 2/3 production support and lead incident response across infrastructure, mail, VPN and access issues, through to root-cause fixes.</li>
+          <li>Onsite data center work: rack and stack servers, replace failed components, run cabling, handle vendor RMAs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>Jan 2021 – Jul 2023</b>Temple Terrace, FL</div>
+      <div>
+        <h3>Systems Engineer <span>· Verizon</span></h3>
+        <ul>
+          <li>Supported 15,000+ Unix/Linux servers (RHEL, CentOS, Solaris, AIX) in 24x7 business-critical production.</li>
+          <li>Deployed RHEL builds on physical and virtual servers with Red Hat Satellite and Kickstart.</li>
+          <li>Wrote Ansible playbooks and Bash scripts for patching, configuration, user management and health checks, cutting manual effort and keeping builds consistent.</li>
+          <li>Designed and supported VMware infrastructure, and resolved escalated issues across CPU, memory, filesystems, LVM, networking and package dependencies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>Nov 2018 – Dec 2020</b>Dublin, OH</div>
+      <div>
+        <h3>Systems Administrator <span>· OCLC</span></h3>
+        <ul>
+          <li>Administered Windows Server, Linux and Solaris production systems and VMware virtual machines, plus DNS, DHCP and VPN services.</li>
+          <li>Performed bare-metal installs: racked hardware, configured RAID and out-of-band management, and provisioned operating systems over PXE.</li>
+          <li>Supported SCCM software deployment, Windows patch management and asset tracking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">How I work</span>
+      <h2>Change carefully, automate the repeats, write it down</h2>
+    </div>
+    <div class="ways">
+      <div>
+        <span class="label">Controlled change</span>
+        <p>Pre-checks before, validation after, and maintenance windows agreed with application and server owners. That is how the vSphere upgrade and the PowerStore migration ran.</p>
+      </div>
+      <div>
+        <span class="label">Automate the repeats</span>
+        <p>Patching, packages, users, sudo and service checks live in Ansible playbooks, Bash and PowerShell, so every server gets built and maintained the same way.</p>
+      </div>
+      <div>
+        <span class="label">Leave it documented</span>
+        <p>SOPs, runbooks, and rack and network diagrams, so whoever is on call next is not guessing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Toolkit</span>
+      <h2>What I work with</h2>
+    </div>
+    <div class="kit">
+      <dl>
+        <div><dt>Windows &amp; identity</dt><dd>Windows Server, Active Directory, Group Policy, DNS, DHCP, Microsoft Entra ID, single sign-on (SSO), Intune, Microsoft 365</dd></div>
+        <div><dt>Linux &amp; automation</dt><dd>RHEL, CentOS, Solaris, AIX, Ansible, Red Hat Ansible Automation Platform, Satellite, Bash, PowerShell</dd></div>
+        <div><dt>Virtualization &amp; cloud</dt><dd>VMware ESXi 8, vCenter, vROps, Microsoft Azure, Dell PowerStore, SAN and NAS storage</dd></div>
+        <div><dt>Endpoint &amp; patching</dt><dd>Intune, NinjaOne, PDQ Deploy, WSUS, SCCM, BigFix, Flexera</dd></div>
+        <div><dt>Security</dt><dd>Defender for Endpoint, CrowdStrike Falcon, Rapid7, Axonius, Zscaler ZPA</dd></div>
+        <div><dt>Backup &amp; recovery</dt><dd>Veeam, N-able Cove Data Protection, tape, VMware snapshots</dd></div>
+        <div><dt>Code &amp; DevOps</dt><dd>Python, TypeScript, Git and GitHub, Docker, Caddy, CI/CD on Vercel, PostgreSQL</dd></div>
+        <div><dt>AI &amp; automation</dt><dd>Anthropic and OpenAI APIs, n8n, AI agent workflows</dd></div>
+        <div><dt>Monitoring &amp; ITSM</dt><dd>Zabbix, Site24x7, Nagios XI, Dell OpenManage Enterprise, ServiceNow, Jira</dd></div>
+        <div><dt>Compliance</dt><dd>HITRUST, SOC, PHI-sensitive systems</dd></div>
+      </dl>
+      <div class="creds">
+        <div>
+          <span class="label">Certifications</span>
+          <ul style="margin-top:10px">
+            <li>Azure Administrator Associate (AZ-104)<span>Oct 2024</span></li>
+            <li>Azure AI Fundamentals (AI-900)<span>Oct 2025</span></li>
+            <li>Azure Fundamentals (AZ-900)<span>Oct 2023</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="label">Education</span>
+          <ul style="margin-top:10px">
+            <li>B.S. Computer Science, Illinois State University<span>May 2018</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="match">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">For recruiters and hiring managers</span>
+      <h2>Paste your job posting. See where I fit.</h2>
+      <p>This checks your requirements against my résumé and shows the evidence for each match, plus anything I don't have. It runs in your browser; nothing you paste is sent anywhere.</p>
+    </div>
+    <div class="match">
+      <div>
+        <label class="label" for="jd">Job description</label>
+        <textarea id="jd" spellcheck="false" style="margin-top:8px"></textarea>
+        <div class="row">
+          <button class="btn cta" id="run" type="button">Check the fit</button>
+          <button class="btn" id="clear" type="button">Clear</button>
+          <span class="note" id="jdnote">Showing a sample posting. Replace it with yours.</span>
+        </div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="score"><b id="pct">0%</b><span id="sum"></span></div>
+        <div class="bar"><i id="bar" style="width:0"></i></div>
+        <ul class="hits" id="hits"></ul>
+        <div class="gaps" id="gaps" hidden></div>
+        <div class="row" style="margin-top:18px"><button class="btn sm" id="copysum" type="button">Copy this summary</button><span class="note" id="copynote"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">How this site runs</span>
+      <h2>This page is infrastructure too</h2>
+      <p>The site is defined in Terraform, deployed by a pipeline, and locked down with security headers. The repository is public, so you can read all of it.</p>
+    </div>
+    <div class="ways">
+      <div>
+        <span class="label">Infrastructure as code</span>
+        <p>Terraform creates the Azure resource group, the Static Web App and the custom domain. Nothing was clicked together in the portal.</p>
+      </div>
+      <div>
+        <span class="label">Pipeline</span>
+        <p>GitHub Actions checks the Terraform on every pull request, deploys a preview environment, and publishes to production on merge.</p>
+      </div>
+      <div>
+        <span class="label">Security headers</span>
+        <p>A strict Content-Security-Policy with no inline scripts, plus HSTS, frame blocking and a locked-down permissions policy. Check them yourself:</p>
+        <pre class="cmd"><code>curl -sI https://<span id="host">this-site</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <span class="label">Contact</span>
+      <h2 style="margin-top:12px">Have a role that fits? Let's talk.</h2>
+      <p style="color:var(--muted);margin-top:16px;max-width:46ch">Based in Chicago. Happy to walk through any of the projects above in detail, including what I'd do differently.</p>
+    </div>
+    <dl>
+      <div><dt>Email</dt><dd><a id="email" href="mailto:Lnxsam.patel106@gmail.com">Lnxsam.patel106@gmail.com</a><button class="btn sm" id="copymail" type="button">Copy</button></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+18033865624">803-386-5624</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/samarth-patel106" target="_blank" rel="noopener">linkedin.com/in/samarth-patel106</a></dd></div>
+      <div><dt>Location</dt><dd>Chicago, IL</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Samarth Patel · Systems &amp; Infrastructure Engineer · Chicago, IL</div></footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Copy to terraform.tfvars (which git ignores) and fill in.
+subscription_id    = "00000000-0000-0000-0000-000000000000"
+enable_www_domain  = false
+enable_apex_domain = false
