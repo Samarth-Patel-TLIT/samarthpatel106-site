@@ -378,6 +378,29 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
   var each=function(sel,fn){Array.prototype.forEach.call(document.querySelectorAll(sel),fn)};
   var io=('IntersectionObserver' in window)?IntersectionObserver:null;
 
+  /* 1. Decrypted headline: "while it changes." resolves from terminal glyphs, left to right. */
+  var em=document.querySelector('.hero h1 em');
+  if(em){
+    var target=em.textContent,glyphs='01<>/\\[]{}#$%&*+=?ABCDEFXYZ',timer=null;
+    em.setAttribute('aria-label',target);
+    var decrypt=function(){
+      if(timer)return;
+      var frame=0,total=target.length*2+8;
+      timer=setInterval(function(){
+        frame++;
+        var shown=Math.floor((frame/total)*target.length*1.15),out='';
+        for(var i=0;i<target.length;i++){
+          var c=target[i];
+          out+=(i<shown||c===' '||c==='.')?c:glyphs[(Math.random()*glyphs.length)|0];
+        }
+        em.textContent=out;
+        if(shown>=target.length){clearInterval(timer);timer=null;em.textContent=target}
+      },38);
+    };
+    setTimeout(decrypt,350);
+    em.closest('h1').addEventListener('pointerenter',decrypt);
+  }
+
   /* 2. Count-up: stat figures roll up from zero the first time they scroll into view. */
   if(io){
     var cio=new io(function(entries){
