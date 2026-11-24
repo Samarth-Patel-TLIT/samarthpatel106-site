@@ -392,21 +392,6 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
       else if(node.nodeType===1){node.classList.add('wf');node.style.animationDelay=(n++*70)+'ms'}
     });
     h.setAttribute('aria-label',label);
-    // The motion layer below swaps these letters for random glyphs for a moment. Glyph widths differ,
-    // so pin the box to its resting size while that runs, then let it flow again (rotation, resize).
-    var em=h.querySelector('em'),free=null;
-    var hold=function(){
-      if(!em)return;
-      if(!free){
-        var multi=em.offsetHeight>parseFloat(getComputedStyle(em).lineHeight)*1.5;
-        em.style.width=em.offsetWidth+'px';
-        if(multi)em.style.height=em.offsetHeight+'px';
-        em.classList.add('lock');if(multi)em.classList.add('multi');
-      }
-      clearTimeout(free);
-      free=setTimeout(function(){em.style.width=em.style.height='';em.classList.remove('lock','multi');free=null},2600);
-    };
-    hold();h.addEventListener('pointerenter',hold);
   }
 
   // Rotating word in the greeting.
@@ -441,30 +426,7 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
   var each=function(sel,fn){Array.prototype.forEach.call(document.querySelectorAll(sel),fn)};
   var io=('IntersectionObserver' in window)?IntersectionObserver:null;
 
-  /* 1. Decrypted headline: "while it changes." resolves from terminal glyphs, left to right. */
-  var em=document.querySelector('.hero h1 em');
-  if(em){
-    var target=em.textContent,glyphs='01<>/\\[]{}#$%&*+=?ABCDEFXYZ',timer=null;
-    em.setAttribute('aria-label',target);
-    var decrypt=function(){
-      if(timer)return;
-      var frame=0,total=target.length*2+8;
-      timer=setInterval(function(){
-        frame++;
-        var shown=Math.floor((frame/total)*target.length*1.15),out='';
-        for(var i=0;i<target.length;i++){
-          var c=target[i];
-          out+=(i<shown||c===' '||c==='.')?c:glyphs[(Math.random()*glyphs.length)|0];
-        }
-        em.textContent=out;
-        if(shown>=target.length){clearInterval(timer);timer=null;em.textContent=target}
-      },38);
-    };
-    setTimeout(decrypt,350);
-    em.closest('h1').addEventListener('pointerenter',decrypt);
-  }
-
-  /* 2. Count-up: stat figures roll up from zero the first time they scroll into view. */
+  /* 1. Count-up: stat figures roll up from zero the first time they scroll into view. */
   if(io){
     var cio=new io(function(entries){
       entries.forEach(function(en){
@@ -490,7 +452,7 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
     });
   }
 
-  /* 3. Spotlight: a soft glow follows the pointer across cards and diagrams. */
+  /* 2. Spotlight: a soft glow follows the pointer across cards and diagrams. */
   if(window.matchMedia('(hover: hover)').matches){
     each('.projects article, .ways > div, .work figure.fig, .wstats div, .out, .detail',function(card){
       card.classList.add('spot');
@@ -502,7 +464,7 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
     });
   }
 
-  /* 4. Reveal on scroll: only content that starts below the fold, so nothing on screen ever blinks. */
+  /* 3. Reveal on scroll: only content that starts below the fold, so nothing on screen ever blinks. */
   if(io){
     var rio=new io(function(entries){
       entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');rio.unobserve(en.target)}});
@@ -521,7 +483,7 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
     });
   }
 
-  /* 5. Scroll progress: a thin line under the nav shows how far down the page you are. */
+  /* 4. Scroll progress: a thin line under the nav shows how far down the page you are. */
   var nav=document.querySelector('.nav');
   if(nav){
     var bar=document.createElement('i');bar.className='progress';bar.setAttribute('aria-hidden','true');nav.appendChild(bar);

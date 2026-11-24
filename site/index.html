@@ -110,8 +110,6 @@ p{margin:0}
 /* headline words rise in on load (added by app.js; the plain headline is the resting state) */
 .hero h1 .w{display:inline-block;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
 .hero h1 .wf{animation:fadein .9s ease-out both}
-.hero h1 em.lock{white-space:nowrap}
-.hero h1 em.lock.multi{white-space:normal;overflow:hidden}
 @keyframes rise{from{opacity:0;transform:translateY(.45em)}}
 @keyframes fadein{from{opacity:0}}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
@@ -331,7 +329,6 @@ footer{padding-block:26px;background:var(--room);border-top:1px solid var(--line
 /* motion layer (driven by app.js; everything is visible without it) */
 .nav{position:sticky}
 .nav .progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--accent-fill),var(--ok));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
-.hero h1 em{font-variant-ligatures:none}
 .status{position:relative;overflow:hidden}
 .status::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(138,182,255,.28) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 5.5s ease-in-out 1.2s infinite;pointer-events:none}
 @keyframes sheen{0%{transform:translateX(-120%)}30%,100%{transform:translateX(120%)}}
