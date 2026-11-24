@@ -56,7 +56,7 @@ setLens(LENS[(location.hash||'').slice(1)]?location.hash.slice(1):'infra',false)
 function initRack(){
   var canvas=$('rack'),stage=$('stage');
   if(!window.THREE){stage.hidden=true;return}
-  $('hint').textContent='drag to rotate · click a unit to pull it out';
+  $('hint').textContent=(window.matchMedia&&window.matchMedia('(pointer:coarse)').matches)?'drag to rotate · tap a unit to pull it out':'drag to rotate · click a unit to pull it out';
   var T=window.THREE,renderer;
   try{renderer=new T.WebGLRenderer({canvas:canvas,antialias:true,alpha:true})}catch(e){stage.hidden=true;return}
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
@@ -366,6 +366,69 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
         .catch(function(e){if(e&&e.code==='declined')return;window.open(a.href,'_blank','noopener')});
     });
   });
+})();
+
+/* ---- hero motion: word-by-word headline, rotating word, portrait tilt ---- */
+(function(){
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn)};
+
+  if(still)return;
+
+  // Headline: wrap each word so it can rise in on load. The full sentence stays available to screen readers.
+  var h=document.querySelector('.hero h1');
+  if(h){
+    var n=0,label=h.textContent;
+    var wrap=function(node){
+      var f=document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(function(w){
+        if(!w.trim()){f.appendChild(document.createTextNode(w));return}
+        var s=document.createElement('span');s.className='w';s.style.animationDelay=(n++*70)+'ms';s.textContent=w;f.appendChild(s);
+      });
+      node.parentNode.replaceChild(f,node);
+    };
+    each(Array.prototype.slice.call(h.childNodes),function(node){
+      if(node.nodeType===3)wrap(node);
+      else if(node.nodeType===1){node.classList.add('wf');node.style.animationDelay=(n++*70)+'ms'}
+    });
+    h.setAttribute('aria-label',label);
+    // The motion layer below swaps these letters for random glyphs for a moment. Glyph widths differ,
+    // so pin the box to its resting size while that runs, then let it flow again (rotation, resize).
+    var em=h.querySelector('em'),free=null;
+    var hold=function(){
+      if(!em)return;
+      if(!free){
+        var multi=em.offsetHeight>parseFloat(getComputedStyle(em).lineHeight)*1.5;
+        em.style.width=em.offsetWidth+'px';
+        if(multi)em.style.height=em.offsetHeight+'px';
+        em.classList.add('lock');if(multi)em.classList.add('multi');
+      }
+      clearTimeout(free);
+      free=setTimeout(function(){em.style.width=em.style.height='';em.classList.remove('lock','multi');free=null},2600);
+    };
+    hold();h.addEventListener('pointerenter',hold);
+  }
+
+  // Rotating word in the greeting.
+  var rot=document.getElementById('rot');
+  if(rot){
+    var words=['VMware','Windows','Linux','Azure'],k=0;
+    setInterval(function(){
+      rot.classList.add('out');
+      setTimeout(function(){k=(k+1)%words.length;rot.textContent=words[k];rot.classList.remove('out')},260);
+    },2400);
+  }
+
+  // Portrait tilts toward the pointer.
+  var p=document.getElementById('portrait');
+  if(p){
+    p.addEventListener('pointermove',function(e){
+      if(e.pointerType&&e.pointerType!=='mouse')return;
+      var r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      p.style.transform='perspective(600px) rotateY('+(x*14).toFixed(1)+'deg) rotateX('+(-y*14).toFixed(1)+'deg) scale(1.04)';
+    });
+    p.addEventListener('pointerleave',function(){p.style.transform=''});
+  }
 })();
 
 /* ---------- motion layer ----------
