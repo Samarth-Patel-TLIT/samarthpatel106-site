@@ -367,3 +367,106 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
     });
   });
 })();
+
+/* ---------- motion layer ----------
+   Effects in the spirit of React Bits, written in plain JS so the page stays dependency-free
+   and inside its Content-Security-Policy. Every element is fully readable before any of this
+   runs, and all of it switches off under prefers-reduced-motion. */
+(function(){
+  "use strict";
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var each=function(sel,fn){Array.prototype.forEach.call(document.querySelectorAll(sel),fn)};
+  var io=('IntersectionObserver' in window)?IntersectionObserver:null;
+
+  /* 1. Decrypted headline: "while it changes." resolves from terminal glyphs, left to right. */
+  var em=document.querySelector('.hero h1 em');
+  if(em){
+    var target=em.textContent,glyphs='01<>/\\[]{}#$%&*+=?ABCDEFXYZ',timer=null;
+    em.setAttribute('aria-label',target);
+    var decrypt=function(){
+      if(timer)return;
+      var frame=0,total=target.length*2+8;
+      timer=setInterval(function(){
+        frame++;
+        var shown=Math.floor((frame/total)*target.length*1.15),out='';
+        for(var i=0;i<target.length;i++){
+          var c=target[i];
+          out+=(i<shown||c===' '||c==='.')?c:glyphs[(Math.random()*glyphs.length)|0];
+        }
+        em.textContent=out;
+        if(shown>=target.length){clearInterval(timer);timer=null;em.textContent=target}
+      },38);
+    };
+    setTimeout(decrypt,350);
+    em.closest('h1').addEventListener('pointerenter',decrypt);
+  }
+
+  /* 2. Count-up: stat figures roll up from zero the first time they scroll into view. */
+  if(io){
+    var cio=new io(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting)return;cio.unobserve(en.target);
+        var el=en.target,raw=el.getAttribute('data-final'),m=raw.match(/^([\d,]+)(\D*)$/);
+        var end=parseInt(m[1].replace(/,/g,''),10),suf=m[2],t0=null,dur=end>100?1500:900;
+        if(end===0)return;
+        var step=function(t){
+          if(t0===null)t0=t;
+          var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(2,-10*p),v=Math.round(end*(p===1?1:e));
+          el.textContent=v.toLocaleString('en-US')+suf;
+          if(p<1)requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    },{threshold:.6});
+    each('.stats b, .wstats b',function(b){
+      var txt=b.textContent.trim();
+      if(!/^[\d,]+\D*$/.test(txt))return;           // skips "AZ-104"
+      b.setAttribute('data-final',txt);b.setAttribute('aria-label',txt);
+      b.style.minWidth=b.offsetWidth+'px';           // no layout jump while digits change
+      cio.observe(b);
+    });
+  }
+
+  /* 3. Spotlight: a soft glow follows the pointer across cards and diagrams. */
+  if(window.matchMedia('(hover: hover)').matches){
+    each('.projects article, .ways > div, .work figure.fig, .wstats div, .out, .detail',function(card){
+      card.classList.add('spot');
+      card.addEventListener('pointermove',function(ev){
+        var r=card.getBoundingClientRect();
+        card.style.setProperty('--mx',(ev.clientX-r.left)+'px');
+        card.style.setProperty('--my',(ev.clientY-r.top)+'px');
+      });
+    });
+  }
+
+  /* 4. Reveal on scroll: only content that starts below the fold, so nothing on screen ever blinks. */
+  if(io){
+    var rio=new io(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');rio.unobserve(en.target)}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    var vh=window.innerHeight;
+    each('.work article, .projects article, .job, .ways > div, .ledger li, .creds, .kit dl',function(el,i){
+      if(el.getBoundingClientRect().top<vh)return;
+      el.classList.add('rv');
+      var sib=Array.prototype.indexOf.call(el.parentNode.children,el);
+      el.style.transitionDelay=(sib%4)*70+'ms';
+      rio.observe(el);
+    });
+    // Jumping to a project from the index reveals it immediately.
+    window.addEventListener('hashchange',function(){
+      var t=document.getElementById(location.hash.slice(1));if(t)t.classList.add('in');
+    });
+  }
+
+  /* 5. Scroll progress: a thin line under the nav shows how far down the page you are. */
+  var nav=document.querySelector('.nav');
+  if(nav){
+    var bar=document.createElement('i');bar.className='progress';bar.setAttribute('aria-hidden','true');nav.appendChild(bar);
+    var ticking=false,upd=function(){
+      var d=document.documentElement,max=d.scrollHeight-d.clientHeight;
+      bar.style.transform='scaleX('+(max>0?d.scrollTop/max:0)+')';ticking=false;
+    };
+    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});
+    upd();
+  }
+})();

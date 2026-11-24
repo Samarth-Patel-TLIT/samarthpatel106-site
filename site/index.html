@@ -287,6 +287,24 @@ footer{padding-block:26px;background:var(--room);border-top:1px solid var(--line
   section{padding-block:20px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i,.btn{transition:none}}
+
+/* motion layer (driven by app.js; everything is visible without it) */
+.nav{position:sticky}
+.nav .progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--accent-fill),var(--ok));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+.hero h1 em{font-variant-ligatures:none}
+.status{position:relative;overflow:hidden}
+.status::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(138,182,255,.28) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 5.5s ease-in-out 1.2s infinite;pointer-events:none}
+@keyframes sheen{0%{transform:translateX(-120%)}30%,100%{transform:translateX(120%)}}
+.spot{position:relative;isolation:isolate}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;z-index:2;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent-fill) 13%,transparent),transparent 62%)}
+.spot:hover::after{opacity:1}
+.projects article.spot,.ways > div.spot{transition:border-color .25s,transform .25s}
+.projects article.spot:hover,.ways > div.spot:hover{border-color:color-mix(in srgb,var(--accent-fill) 45%,var(--line));transform:translateY(-2px)}
+.rv{opacity:0;transform:translateY(18px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+@media print{.rv{opacity:1!important;transform:none!important}.nav .progress,.status::after{display:none}}
+@media (prefers-reduced-motion:reduce){.status::after{animation:none;display:none}.rv{opacity:1;transform:none}}
 </style>
 <link rel="canonical" href="https://www.samarthpatel106.com/">
 <meta property="og:url" content="https://www.samarthpatel106.com/">
