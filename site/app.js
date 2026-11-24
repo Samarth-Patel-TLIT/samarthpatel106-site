@@ -397,10 +397,10 @@ $('copymail').addEventListener('click',function(){var b=this,n={set textContent(
   // Rotating word in the greeting.
   var rot=document.getElementById('rot');
   if(rot){
-    var words=['VMware','Windows','Linux','Azure'],k=0;
+    var words=['VMware.','Windows.','Linux.','Azure.'],k=0;   // last in the line, so nothing after it shifts
     setInterval(function(){
-      rot.classList.add('out');
-      setTimeout(function(){k=(k+1)%words.length;rot.textContent=words[k];rot.classList.remove('out')},260);
+      rot.classList.add('swap');   // not 'out': that class styles the job-posting result box
+      setTimeout(function(){k=(k+1)%words.length;rot.textContent=words[k];rot.classList.remove('swap')},260);
     },2400);
   }
 

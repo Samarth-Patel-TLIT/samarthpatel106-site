@@ -95,7 +95,7 @@ p{margin:0}
 .hi{flex:1 1 0;min-width:0;font-family:var(--display);font-stretch:106%;font-weight:600;font-size:clamp(18px,2vw,23px);line-height:1.3}
 .hi span.line{display:block}
 .rot{display:inline-block;color:var(--accent);transition:opacity .25s,transform .25s}
-.rot.out{opacity:0;transform:translateY(-.3em)}
+.rot.swap{opacity:0;transform:translateY(-.3em)}
 .portrait{flex:none;width:104px;height:104px;padding:3px;border-radius:24px;background:linear-gradient(135deg,#8ab6ff,#2f7bff 45%,#4ade80);box-shadow:0 14px 40px -12px rgba(47,123,255,.7);transition:transform .2s ease-out;will-change:transform}
 .portrait img{display:block;width:100%;height:100%;object-fit:cover;border-radius:21px;background:var(--surface)}
 @media (max-width:360px){.status{font-size:11.5px;letter-spacing:0}.stats div b{font-size:22px}}
@@ -369,7 +369,7 @@ footer{padding-block:26px;background:var(--room);border-top:1px solid var(--line
       <div class="status"><i></i>Open to new roles · Chicago, IL</div>
       <div class="hello">
         <div class="portrait" id="portrait"><img src="samarth.jpg" width="720" height="720" alt="Portrait of Samarth Patel"></div>
-        <p class="hi"><span class="line">Hi, I'm Samarth.</span><span class="line">I keep <span class="rot" id="rot">VMware</span> running.</span></p>
+        <p class="hi"><span class="line">Hi, I'm Samarth.</span><span class="line">I keep systems running on <span class="rot" id="rot">VMware.</span></span></p>
       </div>
       <h1>Infrastructure that stays up <em>while it changes.</em></h1>
       <p class="lede" id="lede"><b>Systems and infrastructure engineer</b> with 8 years running and modernizing enterprise Windows, Linux, VMware and Azure in HITRUST and SOC audited environments: platform upgrades, storage and OS migrations, and the automation that keeps builds consistent. I also build my own tooling in Python, Docker and n8n, including AI agents.</p>
